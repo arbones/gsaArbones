@@ -4,10 +4,12 @@
 \alias{print.GSAfisherResult}
 \title{Print GSAfisher Results}
 \usage{
-\method{print}{GSAfisherResult}(object)
+\method{print}{GSAfisherResult}(x, ...)
 }
 \arguments{
-\item{object}{An object of class \code{GSAfisherResult}.}
+\item{x}{An object of class \code{GSAfisherResult}.}
+
+\item{...}{other arguments}
 }
 \value{
 returns the input object.

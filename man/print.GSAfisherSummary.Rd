@@ -4,10 +4,12 @@
 \alias{print.GSAfisherSummary}
 \title{Print GSAfisher Results}
 \usage{
-\method{print}{GSAfisherSummary}(object)
+\method{print}{GSAfisherSummary}(x, ...)
 }
 \arguments{
-\item{object}{An object of class \code{GSAfisherSummary}.}
+\item{x}{An object of class \code{GSAfisherSummary}.}
+
+\item{...}{other arguments}
 }
 \value{
 Summary.

@@ -55,13 +55,14 @@ GSAfisher <- function(p_values) {
 #'
 #' Prints the GSAfisher analysis results directly to the console.
 #'
-#' @param object An object of class `GSAfisherResult`.
+#' @param x An object of class `GSAfisherResult`.
+#' @param ... other arguments
 #' @return returns the input object.
 #' @export
-print.GSAfisherResult <- function(object) {
+print.GSAfisherResult <- function(x,...) {
     cat("Fisher's Combined Test Results:\n")
-    cat("Fisher's Combined Statistic:", object$Fisher_statistic, "\n")
-    cat("Combined P-value:", format.pval(object$P_value, digits = 3, eps=0.001), "\n")
+    cat("Fisher's Combined Statistic:", x$Fisher_statistic, "\n")
+    cat("Combined P-value:", format.pval(x$P_value, digits = 3, eps=0.001), "\n")
 }
 
 ###############################################################################################
@@ -72,9 +73,10 @@ print.GSAfisherResult <- function(object) {
 #' Generates a concise summary of the GSAfisher analysis results.
 #'
 #' @param object An object of class `GSAfisherResult`.
+#' @param ... other arguments
 #' @return Invisible returns a GSAfisherSummary object with key statistics from the Fisher's combined test.
 #' @export
-summary.GSAfisherResult <- function(object) {
+summary.GSAfisherResult <- function(object,...) {
     summary_result <- list(
         n.p_values=length(object$p_values),
         n.significant=sum(object$p_values<0.05),
@@ -95,17 +97,18 @@ summary.GSAfisherResult <- function(object) {
 #'
 #' Prints the GSAfisher analysis results directly to the console.
 #'
-#' @param object An object of class `GSAfisherSummary`.
+#' @param x An object of class `GSAfisherSummary`.
+#' @param ... other arguments
 #' @return Summary.
 #' @export
-print.GSAfisherSummary <- function(object) {
-    cat("Number of p-values:",object$n.p_values,"\n")
-    cat("Number of significant (< 0.05) p-values:",object$n.significant,"\n")
+print.GSAfisherSummary <- function(x,...) {
+    cat("Number of p-values:",x$n.p_values,"\n")
+    cat("Number of significant (< 0.05) p-values:",x$n.significant,"\n")
     cat("*********************************************\n")
     cat("Summary of Fisher's Combined Test Results:\n")
-    cat("Fisher's Combined Statistic:", object$Fisher_statistic, "\n")
-    cat("Combined P-value:", format.pval(object$P_value, digits = 3, eps=0.001), "\n")
-    cat("Significant (P < 0.05):", ifelse(object$Significant, "Yes", "No"), "\n")
+    cat("Fisher's Combined Statistic:", x$Fisher_statistic, "\n")
+    cat("Combined P-value:", format.pval(x$P_value, digits = 3, eps=0.001), "\n")
+    cat("Significant (P < 0.05):", ifelse(x$Significant, "Yes", "No"), "\n")
 }
 
 
@@ -154,23 +157,23 @@ GSAfisher.multiple <- function(p_values_list) {
 }
 
 
-## Implement a method to visualize the obtained results (Hint: qqplot, . . . ).
+## Implement a method to visualize the obtained results.
 
 #' Plot of GSAfisher.multiple Analysis
 #'
 #' Generates a concise summary of the GSAfisher analysis results.
 #'
-#' @param combined_p_values An object of class `GSAfisherMultipleResult`.
+#' @param x An object of class `GSAfisherMultipleResult`.
 #' @param ...  Other plot arguments
-#' @return AN histogram of all combined p-values
+#' @return An histogram of all combined p-values
 #' @export
-plot.GSAfisherMultipleResult <- function(combined_p_values, ...) {
+plot.GSAfisherMultipleResult <- function(x, ...) {
     # Check if input p_values is numeric
-    if (!is.numeric(combined_p_values)) {
+    if (!is.numeric(x)) {
         stop("Input must be numeric.")
     }
 
-    graphics::hist(combined_p_values,
+    graphics::hist(x,
          main="Histogram of all p-values for the GSAfisher")
 
 }

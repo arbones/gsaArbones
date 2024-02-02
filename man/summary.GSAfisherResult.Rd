@@ -4,10 +4,12 @@
 \alias{summary.GSAfisherResult}
 \title{Summary of GSAfisher Analysis}
 \usage{
-\method{summary}{GSAfisherResult}(object)
+\method{summary}{GSAfisherResult}(object, ...)
 }
 \arguments{
 \item{object}{An object of class \code{GSAfisherResult}.}
+
+\item{...}{other arguments}
 }
 \value{
 Invisible returns a GSAfisherSummary object with key statistics from the Fisher's combined test.

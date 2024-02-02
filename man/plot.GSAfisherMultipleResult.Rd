@@ -4,15 +4,15 @@
 \alias{plot.GSAfisherMultipleResult}
 \title{Plot of GSAfisher.multiple Analysis}
 \usage{
-\method{plot}{GSAfisherMultipleResult}(combined_p_values, ...)
+\method{plot}{GSAfisherMultipleResult}(x, ...)
 }
 \arguments{
-\item{combined_p_values}{An object of class \code{GSAfisherMultipleResult}.}
+\item{x}{An object of class \code{GSAfisherMultipleResult}.}
 
 \item{...}{Other plot arguments}
 }
 \value{
-AN histogram of all combined p-values
+An histogram of all combined p-values
 }
 \description{
 Generates a concise summary of the GSAfisher analysis results.
